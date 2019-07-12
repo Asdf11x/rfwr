@@ -1,15 +1,31 @@
-# Implementation of Constructive Incremental Learning From Only Local Information for open gym CartPole
+# Implementation of Locally Weighted Projection Regression for open gym CartPole
 
-An implementation try of the paper Constructive Incremental Learning From Only Local Information of S. Schaal and C. Atkeson.
+An implementation of Locally Weighted Projection Regression
 
-Current State:
+Readme for submission of Imitation Learning Seminar:
 
-In the Python script linear_regression.py open gym CartPole is used as simulation. A stable baseline algorithm is used to generate a data set (Not implemented yet), which can be imitated by the proposed Receptive Field Weighted Regression algorithm (rfwr) of the paper mentioned above. 
+Included files:
+HS-IL-Jupyter-Notebook-Peter_Muschick 	(Folder containing jupyter notebook)
+_README.txt 							(current file)
+full_dataset_120k.csv 					(Dataset containing 120k lines of training data, created by harsha_evolution.py)
+harsha_evolution.py 					(Evolutionary algorithm used to create training data)
+harsha_evolution_cropped.csv 			(Dataset containing 4,8k lines of training data, created by harsha_evolution.py, only first 100 timestop used)
+HS-IL-Presentation-Peter_Muschick.pdf	(file containing the presentation)
+linear.csv								(test file containing points in linear order)
+linear_plateau.csv						(test file containing points in linear order with a short pleateau)
+lwpr_algorithm.py						(lwpr algorithm file)
+main.py									(The main python script containing the cartpole open gym environment)
+networking.py							(contains the UDP networking part for main.py)
+sharvar_keras.py						(generates training data with an Proximal Policy Optimization algorithm)
+sharvar_keras_data.csv					(created data from sharvar_keras.py)
+sinus_noise.csv							(creates scattered sinus points)
 
-The Matlab script rfwr.m contains the whole algorithm presented in the paper and can be learned with test_rfwr_nD.m. 
+Remarks/explanation to specific files:
 
-The current goal is to use the algorothm of the matlab scripts to learn the dataset and produce predictions which can be used again in the python script. 
+main.py.
+	- This file needs to be executed with python 3.x (open gym is only running with python 3.x)
 
-linear_regression.py
-rfwr.m
-test_rfwr_nD.m
+lwpr_algorithm.py
+	- https://github.com/jdlangs/lwpr
+	- Check their README.txt
+	- Basically a python 2.7 interpreter (32 bit) with a few packages (described in their README.txt) and GCC installed on top of it needs to run it
